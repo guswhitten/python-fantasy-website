@@ -14,7 +14,7 @@ def fantasy():
         league_id = request.form.get("id")
         year = request.form.get("year")
         league = football.League(league_id=int(league_id), year=int(year))
-        return render_template("index.html", display = False, displayLeagueInfo = True, leagueName=league.settings.name)
+        return render_template("index.html", display = False, displayLeagueInfo = True, league=league)
     else:
         return render_template("index.html", display = False, displayLeagueInfo = False)
     

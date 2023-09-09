@@ -57,11 +57,11 @@
             <div align="center">
               <h2>League Found!</h2>
               <br />
-              <p>League Name: {{ leagueName }}</p>
+              <p>League Name: {{ league.settings.name }}</p>
             </div>
             <form method="POST" action="{{ url_for('views.bar_chart_race') }}">
-              <input type="id" name="id" value="{{ id }}" />
-              <input type="text" name="year" value="{{ year }}" />
+              <input type="id" name="id" value="{{ league.league_id }}" />
+              <input type="text" name="year" value="{{ league.year }}" />
               <button type="submit" class="btn btn-primary">Create MP4</button>
             </form>
             {% endif %}
