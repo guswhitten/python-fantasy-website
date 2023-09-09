@@ -26,7 +26,7 @@
             <h1>Fantasy Football</h1>
           </div>
           <div>
-            <form method="POST">
+            <form method="POST" action="{{ url_for('views.fantasy') }}">
               <div>
                 <label for="id">League ID</label>
                 <input
@@ -44,16 +44,31 @@
                   class="form-control"
                   id="year"
                   name="year"
-                  placeholder="Enter year"
+                  placeholder="Enter year (YYYY)"
                 />
               </div>
               <br />
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Find League</button>
             </form>
+          </div>
+          <br />
+          <div>
+            {% if displayLeagueInfo %}
+            <div align="center">
+              <h2>League Found!</h2>
+              <br />
+              <p>League Name: {{ leagueName }}</p>
+            </div>
+            <form method="POST" action="{{ url_for('views.bar_chart_race') }}">
+              <input type="id" name="id" value="{{ id }}" />
+              <input type="text" name="year" value="{{ year }}" />
+              <button type="submit" class="btn btn-primary">Create MP4</button>
+            </form>
+            {% endif %}
           </div>
 
           <div>
-            {% if display == True %}
+            {% if display %}
             <div align="center">
               <video width="400" height="300" controls>
                 <source src="../static/img/fantasy.mp4" type="video/mp4" />

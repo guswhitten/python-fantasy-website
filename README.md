@@ -12,7 +12,6 @@ This will run the Flask development server on your local machine, and you'll be 
 
 ## Fixes needed:
 
-- change 'Enter year' to a dropdown
 - when page is refreshed, no old mp4's should be displayed
 - when creating bar chart race:
   - slow down speed of video

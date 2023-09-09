@@ -4,8 +4,23 @@ from get_league_data import create_chart_race
 
 views = Blueprint(__name__, "views")
 
-@views.route("/", methods=["GET", "POST"])
+@views.route("/", methods=['GET', 'POST'])
+def home():
+    return render_template("index.html", display = False, displayLeagueInfo = False)
+
+@views.route("/fantasy", methods=["GET", "POST"])
 def fantasy():
+    if request.method == "POST":
+        league_id = request.form.get("id")
+        year = request.form.get("year")
+        league = football.League(league_id=int(league_id), year=int(year))
+        return render_template("index.html", display = False, displayLeagueInfo = True, leagueName=league.settings.name)
+    else:
+        return render_template("index.html", display = False, displayLeagueInfo = False)
+    
+
+@views.route("/bar_chart_race", methods=["GET", "POST"])
+def bar_chart_race():
     display = False
     if request.method == "POST":
         league_id = request.form.get("id")
@@ -15,4 +30,4 @@ def fantasy():
         display = True
         return render_template("index.html", display=display, len=len(league.teams))
     else:
-        return render_template("index.html")
+        return render_template("index.html", display = False, displayLeagueInfo = False)

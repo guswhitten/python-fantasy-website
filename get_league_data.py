@@ -44,14 +44,14 @@ def create_chart_race(league):
         n_bars=league_size,
         fixed_order=False,
         fixed_max=True,
-        steps_per_period=10,
+        steps_per_period=25,
         interpolate_period=False,
         label_bars=True,
         bar_size=.95,
         period_label={'x': .99, 'y': .25, 'ha': 'right', 'va': 'center'},
         period_fmt='Week{x:10.1f}',
         perpendicular_bar_func='max',
-        period_length=800,
+        period_length=2000,
         figsize=(5, 3),
         dpi=144,
         cmap='dark24',
@@ -61,8 +61,6 @@ def create_chart_race(league):
         shared_fontdict={'family' : 'Courier New', 'color' : '.1', 'weight': 'bold'},
         bar_kwargs={'alpha': .7, 'ec': 'black'},
         filter_column_colors=False)
-        
-
     
     
 
