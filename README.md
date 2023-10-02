@@ -1,14 +1,12 @@
-## Dependencies:
+## How to run (in VS code):
 
-- `pip install flask`
-- `pip install bar_chart_race`
-- `pip install espn_api`
-- `choco install ffmpeg` or download here https://ffmpeg.org/download.html
-
-## How to use:
-
-Open myproject.py and press F5, or click the green play button in the top right corner of the VS Code editor.
+Open myproject.py and press F5
 This will run the Flask development server on your local machine, and you'll be able to visit the website at http://localhost:8000
+
+## How to run (in Docker):
+- `cd` into directory
+- `docker build -t python-fantasy-website:latest .`
+- `docker run -p 8000:8000 python-fantasy-website`
 
 ## Fixes needed:
 
@@ -21,4 +19,3 @@ This will run the Flask development server on your local machine, and you'll be 
   - Points Against
   - Wins
   - etc.
--
